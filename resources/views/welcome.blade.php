@@ -1,4 +1,6 @@
-@extends('layout.app')
+
+            
+        @extends('layout.app')
 
 <html lang="en">
 <head>
@@ -8,7 +10,6 @@
 </head>
 <body>
   <input type="search" placeholder="Search..." />
+  <button>→</button>
 </body>
 </html>
-            
-        

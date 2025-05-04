@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Attractive Top and Side Nav</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
@@ -100,6 +102,11 @@
             font-family: Arial, sans-serif;
         }
 
+        .container {
+  margin-top: 120px; /* Match or slightly exceed navbar height */
+  padding: 20px;
+}
+
         th, td {
             border: 1px solid #ddd;
             padding: 12px;
@@ -124,6 +131,13 @@
             font-size: 1.5em;
             margin-bottom: 10px;
         }
+
+        button {
+      padding: 8px 12px;
+      margin-left: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -134,9 +148,10 @@
 
   <div class="sidenav">
     <a href="/">Search</a>
-    <a href="issuedlaptop">Issued Laptop</a>
+    <a href="{{route('laptop.issued')}}">Issued Laptop</a>
     <a href="instock">In Stock</a>
     <a href="#">Status</a>
+    <a href="issued">issued</a>
     <a href="#">Logout</a>
   </div>
 

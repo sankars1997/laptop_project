@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('laptops', function (Blueprint $table) {
+        Schema::create('issueds', function (Blueprint $table) {
             $table->unsignedBigInteger('Serial_no'); // Just an unsigned big integer, no auto-increment
     $table->primary('Serial_no');
     $table->text('specifications');
-   // $table->boolean('active')->default(1);
+    $table->date('issued_date');
+    $table->boolean('active')->default(0);
+    $table->string('college_name',100);
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('laptops');
+        Schema::dropIfExists('issueds');
     }
 };

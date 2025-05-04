@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('laptops', function (Blueprint $table) {
-            $table->unsignedBigInteger('Serial_no'); // Just an unsigned big integer, no auto-increment
-    $table->primary('Serial_no');
+        Schema::create('submitteds', function (Blueprint $table) {
+            $table->unsignedBigInteger('Serial_no');
+            $table->primary('Serial_no');
     $table->text('specifications');
-   // $table->boolean('active')->default(1);
+    $table->date('returned_date');
+    $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('laptops');
+        Schema::dropIfExists('submitteds');
     }
 };

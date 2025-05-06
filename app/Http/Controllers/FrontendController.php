@@ -13,12 +13,10 @@ class FrontendController extends Controller
 {
 
 
-    public function Search(){
-        return view('welcome');
-    }
+   
     
 public function Instock(){
-    $submitteds = Submitted::where('active', 0)->latest()->limit(10)->get();
+    $submitteds = Submitted::where('active', 1)->latest()->limit(10)->get();
 
    // $laptops=Laptop::where('active',0);
     return view('instock',compact('submitteds'));
@@ -26,40 +24,30 @@ public function Instock(){
 
 
 public function Issuedlaptop(){
-    $issudes = Issude::where('active', 1)->latest()->limit(10)->get();
+    $issueds = Issued::where('active', 0)->latest()->limit(10)->get();
 
    // $laptops=Laptop::where('active',0);
-    return view('laptop.issued',compact('issudes'));
+    return view('issuedlaptop',compact('issueds'));
+}
+
+
+public function Search(Request $request){
+    $searchinput = $request->input('searchinput');
+    $submittedResults = Submitted::where('Serial_no', '=', $searchinput )->get();
+    $issuedResults = Issued::where('Serial_no', '=', $searchinput )->get();
+    $results = $issuedResults->merge($submittedResults);
+    return view('welcome',compact('results'));
+    return $this->issued($searchinput);
 }
 
 
 
 
 
-    public function moveToSubmitted($id)
+    public function issued()
     {
-        DB::beginTransaction();
-
-        try {
-            // Find the record from issueds table
-            $issued = Issued::findOrFail($id);
-
-            // Insert Serialno and specifications into submitteds table
-            Submitted::create([
-                'Serialno' => $issued->Serialno,
-                'specifications' => $issued->specifactions, // assuming this spelling is used
-            ]);
-
-            // Delete the record from issueds table
-            $issued->delete();
-
-            DB::commit();
-
-            return redirect()->back()->with('success', 'Record successfully moved to Submitteds table.');
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
-        }
+        
+        return view('issued');
     }
 }
 

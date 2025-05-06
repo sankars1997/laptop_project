@@ -8,21 +8,33 @@
 <body>
 
 
+<div class="container mt-5">
+    <h2>Issue Device Form</h2>
+    <form action="{{ route('issued') }}" method="get">  
+        @csrf
 
-@foreach($issuedItems as $item)
-    <tr>
-        <td>{{ $item->Serialno }}</td>
-        <td>{{ $item->specifactions }}</td>
-        <td>{{ $item->collegename }}</td>
-        <td>{{ $item->issued_date }}</td>
-        <td>
-            <form action="{{ route('issued.move', $item->id) }}" method="POST">
-                @csrf
-                <button type="submit">Move to Submitted</button>
-            </form>
-        </td>
-    </tr>
-@endforeach
+      <div class="form-group">
+        <label for="serial_no">Serial Number</label>
+        <input type="text"  name="" class="form-control" readonly>
+      </div>
+      <div class="form-group">
+        <label for="specifications">Specifications</label>
+        <input type="text"  name="" class="form-control" readonly>
+      </div>
+      <div class="form-group">
+        <label for="college_name">College Name</label>
+        <input type="text" id="college_name" name="college_name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="issued_date">Issued Date</label>
+        <input type="date" id="issued_date" name="issued_date" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Issued</button>
+    </form>
+  </div>
+
+
+
 
 
 

@@ -73,7 +73,7 @@
 
     body {
       height: 100vh;
-      margin: 0;
+      margin: 150px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -87,6 +87,8 @@
       width: 450px;
       outline: none;
       transition: 0.3s;
+      margin-bottom: 350px;
+      margin-left: 150px;
       
     }
 
@@ -132,12 +134,26 @@
             margin-bottom: 10px;
         }
 
-        button {
-      padding: 8px 12px;
-      margin-left: 5px;
-      font-size: 18px;
-      cursor: pointer;
+        
+    .page1{
+      float:rigth;
+      margin-left: 55%;
+
     }
+    .page2{
+      float:rigth;
+      margin-left: 55%;
+
+    }
+
+   .container{
+    margin-left: 30%;
+   }
+   .roww{
+    margin-left: 5px;
+    
+   }
+
   </style>
 </head>
 <body>
@@ -150,9 +166,8 @@
     <a href="/">Search</a>
     <a href="{{route('laptop.issued')}}">Issued Laptop</a>
     <a href="instock">In Stock</a>
-    <a href="#">Status</a>
-    <a href="issued">issued</a>
-    <a href="#">Logout</a>
+    <a href="create">New Laptop</a>
+    
   </div>
 
   

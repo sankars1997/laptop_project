@@ -1,3 +1,5 @@
+
+@extends('layout.app')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,16 +12,16 @@
 
 <div class="container mt-5">
     <h2>Issue Device Form</h2>
-    <form action="{{ route('issued') }}" method="get">  
+    <form action="{{route('movetoissudes')}}" method="get">  
         @csrf
 
       <div class="form-group">
-        <label for="serial_no">Serial Number</label>
-        <input type="text"  name="" class="form-control" readonly>
+        <label for="Serial_no">Serial Number</label>
+        <input type="text"  name="Serial_no" id="Serial_no" value="{{$laptop->Serial_no}}" class="form-control" readonly>
       </div>
       <div class="form-group">
         <label for="specifications">Specifications</label>
-        <input type="text"  name="" class="form-control" readonly>
+        <input type="text"  name="specifications" id="specifications"  value="{{$laptop->specifications}}" class="form-control" readonly>
       </div>
       <div class="form-group">
         <label for="college_name">College Name</label>

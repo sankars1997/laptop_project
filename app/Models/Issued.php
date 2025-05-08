@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 class Issued extends Authenticatable
 {use HasFactory, Notifiable;
     protected $guarded=[];
+    protected $primaryKey = 'Serial_no';
 }
 
 

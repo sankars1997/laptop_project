@@ -9,7 +9,7 @@ class Submitted extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-
+    protected $primaryKey = 'Serial_no';
     
 
     protected $guarded=[];

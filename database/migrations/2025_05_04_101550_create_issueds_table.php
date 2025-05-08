@@ -16,7 +16,7 @@ return new class extends Migration
     $table->primary('Serial_no');
     $table->text('specifications');
     $table->date('issued_date');
-    $table->boolean('active')->default(0);
+   // $table->boolean('active')->default(0);
     $table->string('college_name',100);
             $table->timestamps();
         });
